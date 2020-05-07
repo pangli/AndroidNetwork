@@ -34,6 +34,13 @@ dependencies {
     api 'com.squareup.okhttp3:okhttp:4.6.0'
     api 'com.google.code.gson:gson:2.8.6'
 }
+//远程仓库发布编码问题
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
+
 publish {
     userOrg = 'pangli'
     groupId = 'com.zorro.networking'
