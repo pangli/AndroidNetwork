@@ -21,7 +21,7 @@
 #-renamesourcefileattribute SourceFile
 
 #---------------------------------1.实体类---------------------------------
--keep class com.sino.gameplus.bean.** { *; }
+
 #-------------------------------------------------------------------------
 
 #---------------------------------2.第三方包-------------------------------
@@ -41,6 +41,7 @@
 #----------------------------------------------------------------------------
 #---------------------------------5.自定义相关的类和方法-----------------------
 -keep class com.zorro.networking.common.**{*;}
+-keep class com.zorro.networking.core.**{*;}
 -keep class com.zorro.networking.AndroidNetworking{*;}
 -keep class com.zorro.networking.interfaces.**{*;}
 -keep class com.zorro.networking.error.**{*;}
