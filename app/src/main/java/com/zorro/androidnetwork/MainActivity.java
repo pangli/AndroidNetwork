@@ -8,8 +8,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.zorro.networking.AndroidNetworking;
 import com.zorro.networking.error.ANError;
+import com.zorro.networking.interceptors.HttpLoggingInterceptor;
+import com.zorro.networking.interceptors.RetryInterceptor;
 import com.zorro.networking.interfaces.OkHttpResponseAndStringRequestListener;
 
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +31,14 @@ public class MainActivity extends AppCompatActivity {
                 request();
             }
         });
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .addInterceptor(new RetryInterceptor(2, 3000))
+                .build();
+        AndroidNetworking.initialize(this, client);
+        AndroidNetworking.enableLogging(HttpLoggingInterceptor.Level.BODY);
     }
 
     //请求登录接口
