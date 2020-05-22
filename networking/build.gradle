@@ -9,7 +9,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
-        versionName "0.0.8"
+        versionName "0.0.9"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -45,7 +45,7 @@ publish {
     userOrg = 'pangli'
     groupId = 'com.zorro.networking'
     artifactId = 'networking'
-    publishVersion = '0.0.8'
+    publishVersion = '0.0.9'
     desc = 'An intelligent networking'
     website = "https://github.com/pangli/${rootProject.name}"
 }
