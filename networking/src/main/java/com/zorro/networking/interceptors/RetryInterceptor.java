@@ -11,7 +11,7 @@ import okhttp3.Response;
 
 /**
  * Package:   com.zorro.networking.interceptors
- * ClassName: RetryIntercepter
+ * ClassName: RetryInterceptor
  * Created by Zorro on 2020/5/22 11:31.
  * 备注：重试拦截器，重试机制
  */
