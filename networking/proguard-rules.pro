@@ -40,6 +40,7 @@
 
 #----------------------------------------------------------------------------
 #---------------------------------5.自定义相关的类和方法-----------------------
+-keeppackagenames class com.zorro.networking.** #保持包机构
 -keep class com.zorro.networking.common.**{*;}
 -keep class com.zorro.networking.core.**{*;}
 -keep class com.zorro.networking.AndroidNetworking{*;}
