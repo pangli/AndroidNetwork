@@ -17,6 +17,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.FileNameMap;
+import java.net.SocketTimeoutException;
 import java.net.URLConnection;
 
 import okhttp3.Cache;
@@ -202,8 +203,24 @@ public class Utils {
     }
 
     public static ANError getErrorForConnection(ANError error) {
-        error.setErrorDetail(ANConstants.CONNECTION_ERROR);
-        error.setErrorCode(0);
+        Throwable cause;
+        if (error.getCause() != null && error.getCause().getCause() != null) {
+            cause = error.getCause().getCause();
+        } else {
+            cause = null;
+        }
+        if (cause == null) {
+            error.setErrorDetail(ANConstants.CONNECTION_ERROR);
+            error.setErrorCode(0);
+        } else {
+            if (cause instanceof SocketTimeoutException) {
+                error.setErrorDetail(ANConstants.SOCKET_TIMEOUT_ERROR);
+                error.setErrorCode(408);
+            } else {
+                error.setErrorDetail(ANConstants.CONNECTION_ERROR);
+                error.setErrorCode(0);
+            }
+        }
         return error;
     }
 

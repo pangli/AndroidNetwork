@@ -11,6 +11,7 @@ public final class ANConstants {
     public static final int UPDATE = 0x01;
     public static final String CACHE_DIR_NAME = "cache_an";
     public static final String CONNECTION_ERROR = "connectionError";
+    public static final String SOCKET_TIMEOUT_ERROR = "SocketTimeoutException";
     public static final String RESPONSE_FROM_SERVER_ERROR = "responseFromServerError";
     public static final String REQUEST_CANCELLED_ERROR = "requestCancelledError";
     public static final String PARSE_ERROR = "parseError";

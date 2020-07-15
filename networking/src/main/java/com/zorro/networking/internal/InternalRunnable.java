@@ -19,7 +19,7 @@ import static com.zorro.networking.common.RequestType.SIMPLE;
  * Package:   com.zorro.networking.internal
  * ClassName: InternalRunnable
  * Created by Zorro on 2020/5/6 19:49
- * 备注：
+ * 备注：异步请求
  */
 public class InternalRunnable implements Runnable {
 
