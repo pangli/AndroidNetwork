@@ -25,7 +25,7 @@
 #-------------------------------------------------------------------------
 
 #---------------------------------2.第三方包-------------------------------
--keep class com.google.gson.** {*;}
+-keep class com.google.gson.* {*;}
 
 #-------------------------------------------------------------------------
 
@@ -40,13 +40,14 @@
 
 #----------------------------------------------------------------------------
 #---------------------------------5.自定义相关的类和方法-----------------------
--keeppackagenames class com.zorro.networking.** #保持包机构
--keep class com.zorro.networking.common.**{*;}
--keep class com.zorro.networking.core.**{*;}
+#保持包机构
+-keeppackagenames  com.zorro.networking.**
+-keep class com.zorro.networking.common.*{*;}
+-keep class com.zorro.networking.core.*{*;}
 -keep class com.zorro.networking.AndroidNetworking{*;}
--keep class com.zorro.networking.interfaces.**{*;}
--keep class com.zorro.networking.error.**{*;}
--keep class com.zorro.networking.interceptors.**{*;}
+-keep class com.zorro.networking.interfaces.*{*;}
+-keep class com.zorro.networking.error.*{*;}
+-keep class com.zorro.networking.interceptors.*{*;}
 
 
 
