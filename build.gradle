@@ -21,8 +21,21 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+        //maven { url 'https://dl.bintray.com/deand/maven' }
     }
+//    task generateJar {
+//        dependsOn(':'+project.name+':build')
+//        doLast{
+//            copy{
+//                delete('build/libs')
+//                from('build/intermediates/aar_main_jar/release/')
+//                into('build/libs/')
+//                include('classes.jar')
+//                rename('classes.jar', project.name.toLowerCase() + '.jar')
+//            }
+//        }
+//
+//    }
 }
 
 task clean(type: Delete) {

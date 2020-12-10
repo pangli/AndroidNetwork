@@ -1,7 +1,5 @@
 package com.zorro.networking.interceptors;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.IOException;
 import java.io.InterruptedIOException;
 
@@ -24,9 +22,8 @@ public class RetryInterceptor implements Interceptor {
         this.retryInterval = retryInterval;
     }
 
-    @NotNull
     @Override
-    public Response intercept(@NotNull Chain chain) throws IOException {
+    public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
         Response response = chain.proceed(request);
         int retryNum = 0;
