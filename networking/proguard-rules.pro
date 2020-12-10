@@ -65,6 +65,8 @@
    java.lang.Object writeReplace();
    java.lang.Object readResolve();
 }
+# 重命名抛出异常时的文件名称
+-renamesourcefileattribute SourceFile
 #类文件除了定义类，字段，方法外，还为它们附加了一些属性，例如注解，异常，行号等，优化操作会删除不必要的属性，使用-keepattributes可以保留指定的属性
 -keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,*Annotation*,EnclosingMethod
 #----------------------------------------------------------------------------
