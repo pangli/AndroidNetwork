@@ -1,0 +1,16 @@
+apply plugin: 'com.novoda.bintray-release'
+
+//解决 JavaDoc 中文注释生成失败的问题
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
+publish {
+    userOrg = 'pangli'
+    groupId = 'com.zorro.networking'
+    artifactId = 'networking'
+    publishVersion = '0.1.5'
+    desc = 'An intelligent networking'
+    website = "https://github.com/pangli/${rootProject.name}"
+}
