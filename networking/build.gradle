@@ -43,6 +43,6 @@ dependencies {
 //    //（我们只关心classes.jar这个文件）
 //    include('classes.jar')
 //    //重命名
-//    rename('classes.jar', 'networking.jar')
+//    rename('classes.jar', 'networking-0.1.5.jar')
 //}
 //makeJar.dependsOn(build)
