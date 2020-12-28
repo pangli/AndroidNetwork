@@ -10,7 +10,7 @@ publish {
     userOrg = 'pangli'
     groupId = 'com.zorro.networking'
     artifactId = 'networking'
-    publishVersion = '0.1.7'
+    publishVersion = '0.1.8'
     desc = 'An intelligent networking'
     website = "https://github.com/pangli/${rootProject.name}"
 }
