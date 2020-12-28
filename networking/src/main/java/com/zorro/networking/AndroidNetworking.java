@@ -71,6 +71,18 @@ public class AndroidNetworking {
     }
 
     /**
+     * dynamic  set timeout
+     * Different interface can set different timeout time
+     *
+     * @param connectTimeout MILLISECONDS
+     * @param readTimeout    MILLISECONDS
+     * @param writeTimeout   MILLISECONDS
+     */
+    public static void setDynamicTimeout(int connectTimeout, int readTimeout, int writeTimeout) {
+        InternalNetworking.setTimeout(connectTimeout, readTimeout, writeTimeout);
+    }
+
+    /**
      * Method to set decodeOptions
      *
      * @param decodeOptions The decode config for Bitmaps

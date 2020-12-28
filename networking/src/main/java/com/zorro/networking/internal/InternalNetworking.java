@@ -45,6 +45,9 @@ public final class InternalNetworking {
     public static OkHttpClient sHttpClient = getClient();
 
     public static String sUserAgent = null;
+    public static int sConnectTimeout = 15 * 1000;
+    public static int sReadTimeout = 15 * 1000;
+    public static int sWriteTimeout = 15 * 1000;
 
     public static Response performSimpleRequest(ANRequest request) throws ANError {
         Request okHttpRequest;
@@ -272,19 +275,25 @@ public final class InternalNetworking {
 
     public static OkHttpClient getDefaultClient() {
         return new OkHttpClient().newBuilder()
-                .connectTimeout(60, TimeUnit.SECONDS)
-                .readTimeout(60, TimeUnit.SECONDS)
-                .writeTimeout(60, TimeUnit.SECONDS)
+                .connectTimeout(sConnectTimeout, TimeUnit.MILLISECONDS)
+                .readTimeout(sReadTimeout, TimeUnit.MILLISECONDS)
+                .writeTimeout(sWriteTimeout, TimeUnit.MILLISECONDS)
                 .build();
     }
 
     public static void setClientWithCache(Context context) {
         sHttpClient = new OkHttpClient().newBuilder()
                 .cache(Utils.getCache(context, ANConstants.MAX_CACHE_SIZE, ANConstants.CACHE_DIR_NAME))
-                .connectTimeout(60, TimeUnit.SECONDS)
-                .readTimeout(60, TimeUnit.SECONDS)
-                .writeTimeout(60, TimeUnit.SECONDS)
+                .connectTimeout(sConnectTimeout, TimeUnit.MILLISECONDS)
+                .readTimeout(sReadTimeout, TimeUnit.MILLISECONDS)
+                .writeTimeout(sWriteTimeout, TimeUnit.MILLISECONDS)
                 .build();
+    }
+
+    public static void setTimeout(int connectTimeout, int readTimeout, int writeTimeout) {
+        sConnectTimeout = connectTimeout;
+        sReadTimeout = readTimeout;
+        sWriteTimeout = writeTimeout;
     }
 
     public static void setUserAgent(String userAgent) {
