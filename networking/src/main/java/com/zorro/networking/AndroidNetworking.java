@@ -71,6 +71,26 @@ public class AndroidNetworking {
     }
 
     /**
+     * Initializes AndroidNetworking with the specified config.
+     *
+     * @param context      The context
+     * @param okHttpClient The okHttpClient
+     * @param cacheEnabled The cacheEnabled
+     */
+    public static void initialize(Context context, OkHttpClient okHttpClient, boolean cacheEnabled) {
+        if (okHttpClient != null && okHttpClient.cache() == null && cacheEnabled) {
+            okHttpClient = okHttpClient
+                    .newBuilder()
+                    .cache(Utils.getCache(context.getApplicationContext(),
+                            ANConstants.MAX_CACHE_SIZE, ANConstants.CACHE_DIR_NAME))
+                    .build();
+        }
+        InternalNetworking.setClient(okHttpClient);
+        ANRequestQueue.initialize();
+        ANImageLoader.initialize();
+    }
+
+    /**
      * dynamic  set timeout
      * Different interface can set different timeout time
      *
