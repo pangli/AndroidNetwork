@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         AndroidNetworking.initialize(this, client);
         AndroidNetworking.enableLogging(HttpLoggingInterceptor.Level.BODY);
-        AndroidNetworking.setDynamicTimeout(2, 2, 2);
+        AndroidNetworking.setDynamicTimeout(5000, 5000, 5000);
     }
 
     //请求登录接口
