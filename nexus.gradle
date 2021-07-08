@@ -1,0 +1,18 @@
+Properties properties = new Properties()
+properties.load(project.rootProject.file('nexus.properties').newDataInputStream())
+ext {
+    //读取 nexus.properties 文件里面的 nexus.user
+    user = properties.getProperty("nexus.user")
+    //读取 nexus.properties 文件里面的 nexus.password
+    password = properties.getProperty("nexus.password")
+    //读取 nexus.properties 文件里面的 nexus.publishCode
+    publishCode = properties.getProperty("nexus.publishCode").toInteger()
+    //读取 nexus.properties 文件里面的 nexus.publishVersion
+    publishVersion = properties.getProperty("nexus.publishVersion")
+    //读取 nexus.properties 文件里面的 nexus.groupId
+    groupId = properties.getProperty("nexus.groupId")
+    //读取 nexus.properties 文件里面的 nexus.url
+    url = properties.getProperty("nexus.url")
+    verCode = publishCode
+    verName = publishVersion
+}
