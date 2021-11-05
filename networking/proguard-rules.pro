@@ -46,6 +46,7 @@
 -keep class com.zorro.networking.core.*{*;}
 -keep class com.zorro.networking.AndroidNetworking{*;}
 -keep class com.zorro.networking.interfaces.*{*;}
+-keep class com.zorro.networking.internal.InternalNetworking{*;}
 -keep class com.zorro.networking.error.*{*;}
 -keep class com.zorro.networking.interceptors.*{*;}
 
