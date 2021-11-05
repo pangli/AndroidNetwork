@@ -1,5 +1,13 @@
 package com.zorro.networking.internal;
 
+import static com.zorro.networking.common.Method.DELETE;
+import static com.zorro.networking.common.Method.GET;
+import static com.zorro.networking.common.Method.HEAD;
+import static com.zorro.networking.common.Method.OPTIONS;
+import static com.zorro.networking.common.Method.PATCH;
+import static com.zorro.networking.common.Method.POST;
+import static com.zorro.networking.common.Method.PUT;
+
 import android.content.Context;
 import android.net.TrafficStats;
 
@@ -21,14 +29,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-
-import static com.zorro.networking.common.Method.DELETE;
-import static com.zorro.networking.common.Method.GET;
-import static com.zorro.networking.common.Method.HEAD;
-import static com.zorro.networking.common.Method.OPTIONS;
-import static com.zorro.networking.common.Method.PATCH;
-import static com.zorro.networking.common.Method.POST;
-import static com.zorro.networking.common.Method.PUT;
 
 /**
  * Package:   com.zorro.networking.internal
@@ -311,6 +311,14 @@ public final class InternalNetworking {
                 .newBuilder()
                 .addInterceptor(logging)
                 .build();
+    }
+
+    public static void addInterceptors(Interceptor... interceptors) {
+        OkHttpClient.Builder builder = getClient().newBuilder();
+        for (Interceptor interceptor : interceptors) {
+            builder.addInterceptor(interceptor);
+        }
+        sHttpClient = builder.build();
     }
 
 }

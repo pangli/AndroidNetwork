@@ -17,6 +17,7 @@ import com.zorro.networking.internal.InternalNetworking;
 import com.zorro.networking.utils.ParseUtil;
 import com.zorro.networking.utils.Utils;
 
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 
 /**
@@ -88,6 +89,15 @@ public class AndroidNetworking {
         InternalNetworking.setClient(okHttpClient);
         ANRequestQueue.initialize();
         ANImageLoader.initialize();
+    }
+
+    /**
+     * addInterceptors
+     *
+     * @param interceptors Interceptor
+     */
+    public static void addInterceptors(Interceptor... interceptors) {
+        InternalNetworking.addInterceptors(interceptors);
     }
 
     /**
